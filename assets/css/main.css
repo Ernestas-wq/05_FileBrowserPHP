@@ -173,6 +173,10 @@ a {
           flex-direction: column;
 }
 
+.hidden {
+  display: none;
+}
+
 h1,
 h2,
 h3 {
@@ -715,6 +719,12 @@ p em.bounce-me {
 .new_dir__prefix {
   font-size: 10px;
   color: #aaa;
+}
+
+.search {
+  width: 30%;
+  margin-left: -30px;
+  margin-bottom: 1rem;
 }
 
 .custom-file-input {

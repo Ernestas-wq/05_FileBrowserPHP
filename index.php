@@ -71,11 +71,19 @@ $base_dir = implode($sep, $tmp);
                     <input type="text" id="new_dir" name="new_dir" autocomplete="off" required>
                     <label for="new_dir" class="label-name">
                         <span class="content-name">Add new directory
-                        <span class="new_dir__prefix"> (Press enter to confirm)
-                        </span></span>
+                        <span class="new_dir__prefix"> (Press enter to confirm)</span>
+                        </span>
                     </label>
                 </div>
-                </form> </li>
+                </form>
+                </li>
+                <li>
+                <div class="input-container search">
+                <input type="text" id="search" required autocomplete="off">
+                <label for="search" class="label-name">
+                <span class="content-name">Search files and directories</span>
+                </label>
+                </div></li>
                 ';
 
                 if ($_POST['new_dir']) {
@@ -111,7 +119,7 @@ $base_dir = implode($sep, $tmp);
                     if (is_dir($curr_dir)) {
                         #If it's a directory making a form with new path..
                         echo '
-                        <li><form action="index.php"  method="POST" >
+                        <li data-search="' . $content[$i] . '"><form action="index.php"  method="POST" >
             <input type="hidden" name="file" value="' .
                             $rel . $sep . $content[$i] .
                             '"/>
@@ -135,7 +143,7 @@ $base_dir = implode($sep, $tmp);
                         # Need to trim the first slash so it refers to root directory
                         $path = ltrim($path, $sep);
                         # File with all its options (Delete, download..)..
-                        echo '<li><div class="file">
+                        echo '<li data-search="' . $content[$i] . '"><div class="file">
                             <img class="file_img" alt="file" src="assets/img/' . $ext . '.png">
                             <a class="openFile" href="/' . $path  . ' "> ' . $content[$i] . '  </a>
                             <form action="" method="POST">

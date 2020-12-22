@@ -7,6 +7,9 @@ const deleteButtons = Array.from(document.querySelectorAll('.delete'));
 const uploadModal = document.getElementById('uploadModal');
 const closeUploadModal = document.getElementById('closeUploadModal');
 const downloadButtons = Array.from(document.querySelectorAll('.download'));
+const search = document.getElementById('search');
+const allItems = document.querySelectorAll('[data-search]');
+
 // Some input preventions
 if (new_dir_form !== null) {
 	new_dir_form.addEventListener('submit', e => {
@@ -72,3 +75,18 @@ if (uploadModal !== null) {
 		uploadModal.classList.remove('modal_overlay--active');
 	});
 }
+// search
+
+search.addEventListener('keyup', () => {
+	allItems.forEach(item => {
+		item.classList.add('hidden');
+		if (
+			item
+				.getAttribute('data-search')
+				.toLowerCase()
+				.includes(search.value)
+		) {
+			item.classList.remove('hidden');
+		}
+	});
+});
