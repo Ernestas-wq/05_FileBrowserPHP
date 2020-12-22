@@ -77,16 +77,18 @@ if (uploadModal !== null) {
 }
 // search
 
-search.addEventListener('keyup', () => {
-	allItems.forEach(item => {
-		item.classList.add('hidden');
-		if (
-			item
-				.getAttribute('data-search')
-				.toLowerCase()
-				.includes(search.value)
-		) {
-			item.classList.remove('hidden');
-		}
+if (search !== null) {
+	search.addEventListener('keyup', () => {
+		allItems.forEach(item => {
+			item.classList.add('hidden');
+			if (
+				item
+					.getAttribute('data-search')
+					.toLowerCase()
+					.includes(search.value)
+			) {
+				item.classList.remove('hidden');
+			}
+		});
 	});
-});
+}

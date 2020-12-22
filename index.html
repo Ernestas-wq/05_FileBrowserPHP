@@ -24,12 +24,16 @@
             <h1>Your file browser</h1>
             <h3 class="error" id="passwordMessage"></h3>
             <form action="index.php" method="POST" class="start">
-                <input type="hidden" name="name" id="">
-                <button type="submit" class="bouncy" id="start"> Start browsing</button>
+                <button type="submit" class="bouncy" id="start" name="login"> Start browsing</button>
 
                 <div class="input-container">
+                    <input type="text" id="username" name="username" autocomplete="off" required>
+                    <label for="username" class="label-name">
+                        <span class="content-name">Enter username</span>
+                    </label>
+                </div>
+                <div class="input-container">
                     <input type="password" id="password" name="password" autocomplete="off" required>
-
                     <label for="password" class="label-name">
                         <span class="content-name">Enter password</span>
                     </label>

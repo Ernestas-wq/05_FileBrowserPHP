@@ -561,12 +561,65 @@ li {
       -ms-grid-row-align: center;
       align-self: center;
   margin-bottom: 1rem;
+  z-index: 5;
 }
 
 .utility__message {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
   font-size: 30px;
+  color: var(--soft_green);
+}
+
+.utility__message--red {
+  color: var(--soft_red);
+}
+
+.utility__link {
+  background-color: transparent;
+  border: 1px solid var(--text_light);
+  font-size: 24px;
+  color: var(--text_light);
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+  padding: 10px 33px;
+}
+
+.utility__link:hover {
+  background-color: var(--text_light);
+  color: var(--text_dark);
+}
+
+.userUI {
+  z-index: 5;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.userUI__link {
+  background-color: transparent;
+  border: 1px solid var(--text_light);
+  font-size: 24px;
+  color: var(--text_light);
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+  padding: 10px 22px;
+}
+
+.userUI__link:hover {
+  background-color: var(--text_light);
+  color: var(--text_dark);
+}
+
+.userUI__name {
+  margin-right: 15px;
   color: var(--soft_green);
 }
 

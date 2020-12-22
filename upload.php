@@ -34,14 +34,14 @@
 
             // Check if file already exists
             if (file_exists($target_file)) {
-                echo '<h3 class="utility__message"> Sorry, file already exists.</h3>';
+                echo '<h3 class="utility__message utility__message--red"> Sorry, file already exists.</h3>';
                 echo '<br>';
                 $uploadOk = 0;
             }
 
             // Check file size
             if ($_FILES["fileToUpload"]["size"] > 500000) {
-                echo '<h3 class="utility__message">Sorry, your file is too large.</h3>';
+                echo '<h3 class="utility__message utility__message--red">Sorry, your file is too large.</h3>';
                 echo '<br>';
 
                 $uploadOk = 0;
@@ -51,7 +51,7 @@
 
             // Check if $uploadOk is set to 0 by an error
             if ($uploadOk == 0) {
-                echo '<h3  class="utility__message">Sorry, your file was not uploaded.</h3>';
+                echo '<h3  class="utility__message utility__message--red">Sorry, your file was not uploaded.</h3>';
                 echo '<br>';
 
                 // if everything is ok, try to upload file
@@ -62,7 +62,7 @@
             </span> has successfully uploaded.</h3>';
                     echo '<br>';
                 } else {
-                    echo '<h3 class="utility__message">Sorry, there was an error uploading your file.</h3>';
+                    echo '<h3 class="utility__message  utility__message--red">Sorry, there was an error uploading your file.</h3>';
                     echo '<br>';
                 }
             }
