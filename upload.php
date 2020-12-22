@@ -27,31 +27,23 @@
             $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
 
-            echo '<form action="index.php" method="POST" class="utility">
-                <button class="squareBtn" type="submit">Back to browsing</button>
+            echo '<form action="index.html" method="POST" class="utility">
+                <button class="squareBtn" type="submit">Back to main</button>
                 </form>
             ';
 
-            if (isset($_POST["confirmUpload"])) {
-                // $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-                // if ($check !== false) {
-                //     echo "File is an image - " . $check["mime"] . ".";
-                //     $uploadOk = 1;
-                // } else {
-                //     echo "File is not an image.";
-                //     $uploadOk = 0;
-                // }
-                // }
-            }
             // Check if file already exists
             if (file_exists($target_file)) {
                 echo '<h3 class="utility__message"> Sorry, file already exists.</h3>';
+                echo '<br>';
                 $uploadOk = 0;
             }
 
             // Check file size
             if ($_FILES["fileToUpload"]["size"] > 500000) {
-                echo '<h3 class="upload_message">Sorry, your file is too large.</h3>';
+                echo '<h3 class="utility__message">Sorry, your file is too large.</h3>';
+                echo '<br>';
+
                 $uploadOk = 0;
             }
 
@@ -59,15 +51,19 @@
 
             // Check if $uploadOk is set to 0 by an error
             if ($uploadOk == 0) {
-                echo '<h3  class="upload_message">Sorry, your file was not uploaded.</h3>';
+                echo '<h3  class="utility__message">Sorry, your file was not uploaded.</h3>';
+                echo '<br>';
+
                 // if everything is ok, try to upload file
             } else {
                 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                    echo '<h3 class="upload_message">The file <span>
+                    echo '<h3 class="utility__message">The file <span>
             ' . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . '
             </span> has successfully uploaded.</h3>';
+                    echo '<br>';
                 } else {
-                    echo '<h3 class="upload_message">Sorry, there was an error uploading your file.</h3>';
+                    echo '<h3 class="utility__message">Sorry, there was an error uploading your file.</h3>';
+                    echo '<br>';
                 }
             }
             ?>

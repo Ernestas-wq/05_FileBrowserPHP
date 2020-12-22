@@ -30,7 +30,12 @@ h1 {
 	padding: 10px 24px;
 	z-index: 5;
 }
-
+#passwordMessage {
+	text-align: center;
+	margin-bottom: 2rem;
+	font-size: 19px;
+	font-weight: 500;
+}
 @keyframes bouncy {
 	0% {
 		top: 0em;

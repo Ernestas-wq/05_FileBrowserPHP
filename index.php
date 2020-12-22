@@ -1,3 +1,13 @@
+<?php
+# Defining main globals for path managing
+$root_dir = getcwd();
+$sep = DIRECTORY_SEPARATOR;
+$tmp = explode($sep, $root_dir);
+#Making base directory one level up
+$dir = array_splice($tmp, count($tmp) - 1);
+$base_dir = implode($sep, $tmp);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,18 +34,10 @@
             <h3 class="error" id="new_dir_error"></h3>
             <?php
 
-
-
-
             if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 $rel = $_POST['file'];
-                $sep = DIRECTORY_SEPARATOR;
-                // Updating relative path
-                // Defining base directory, change this if you want different folder browsing
-                $base_dir = getcwd();
 
-                // mkdir($base_dir . $sep . 'Hello');
 
                 // if we are atleast 1 level deep updating base directory
                 $base_dir = $rel ? $base_dir . $rel : $base_dir;
@@ -43,6 +45,7 @@
                 # Confirm delete
                 if ($_POST['confirmDelete']) {
                     $path_to_item = $_POST['confirmDelete'];
+                    print_r($path_to_item);
                     unlink($path_to_item);
                 }
 
@@ -82,10 +85,10 @@
                 if ($rel) {
                     # Generating a back button with a back path if atleast 1 level deep
                     # Back path is basically the path - last elementy after /
-                    $back_path = explode("/", $rel);
+                    $back_path = explode($sep, $rel);
                     $back_path = array_filter($back_path);
                     array_pop($back_path);
-                    $back_path = implode('/', $back_path);
+                    $back_path = implode($sep, $back_path);
                     if ($back_path) {
                         $back_path = $sep . $back_path;
                     }
@@ -100,7 +103,7 @@
             ';
                 }
                 // Getting content from new directory
-                // Printing all files in the directory (first two are '.' and '..' so skipping those)
+                // Printing all directories
                 $content = scandir($base_dir);
                 for ($i = 2; $i < count($content); $i++) {
                     # Define new current directory
@@ -117,41 +120,45 @@
             ' . $content[$i] . ' </button>
             </form></li>
             ';
-                    } else {
+                    }
+                }
+                #printing all files
+                for ($i = 2; $i < count($content); $i++) {
+
+                    if (is_file($base_dir . $sep . $content[$i])) {
+                        $curr_dir = $base_dir . $sep . $content[$i];
                         # Getting file extension to show correct image
                         $split = explode('.', $content[$i]);
                         $ext = $split[count($split) - 1];
-                        // print_r(urlencode($content[$i]));
-
-
                         # Getting the relative path and putting it on href
                         $path = $rel ? $rel . $sep . $content[$i] : $content[$i];
                         # Need to trim the first slash so it refers to root directory
-                        $path = ltrim($path, "\ ");
-
-
+                        $path = ltrim($path, $sep);
                         # File with all its options (Delete, download..)..
                         echo '<li><div class="file">
-                        <img class="file_img" alt="file" src="assets/img/' . $ext . '.png">
-                        <a class="openFile" href="' . $path  . ' "> ' . $content[$i] . '  </a>
-                        <form action="" method="POST">
-                        <a class="download" href="download.php?file=' . $path . '">
-                        <img class="download__img" src="assets/img/cloud-arrow-down.svg" alt="trash">
-                        Download </a>
-                        <input type="hidden" name="file" value="' . $rel . '">
-                        <input type="hidden" name="delete" value="' . $curr_dir . '">
-                        <button class="delete" type="submit">Delete
-                        <img class="delete__bin" src="assets/img/trash.svg" alt="trash">
-                        </button>
-                        </form>
-            </div></li>';
+                            <img class="file_img" alt="file" src="assets/img/' . $ext . '.png">
+                            <a class="openFile" href="/' . $path  . ' "> ' . $content[$i] . '  </a>
+                            <form action="" method="POST">
+                            <a class="download" href="download.php?file=' . $base_dir . $sep . $content[$i] . '">
+                            <img class="download__img" src="assets/img/cloud-arrow-down.svg" alt="trash">
+                            Download </a>
+                            <input type="hidden" name="file" value="' . $rel . '">
+                            <input type="hidden" name="delete" value="' . $curr_dir . '">
+                            <button class="delete" type="submit">Delete
+                            <img class="delete__bin" src="assets/img/trash.svg" alt="trash">
+                            </button>
+                            </form>
+                </div></li>';
                     }
                 }
+
+
                 #Delete
                 if ($_POST['delete']) {
                     $delete_path = $_POST['delete'];
                     $temp = explode($sep, $delete_path);
                     $fileName = $temp[count($temp) - 1];
+
                     echo '<div class="modal_overlay modal_overlay--active" id="confirmDeleteModal">
                     <form action="" method="POST" id="confirmDelete" class="modal">
                     <h3>Are you sure you want to delete <span>' . $fileName . '</span> ? </h3>
@@ -184,6 +191,12 @@
 
 
                 echo "</ul";
+            } else {
+                echo '<h3 class="utility__message error"> Sorry, something went wrong.</h3>
+                <form action="index.html" method="POST" class="utility">
+                <button class="squareBtn" type="submit">Back to main</button>
+                </form>
+                ';
             }
             ?>
         </div>
