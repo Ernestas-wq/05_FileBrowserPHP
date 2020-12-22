@@ -1,0 +1,153 @@
+form {
+	z-index: 5;
+}
+ul {
+	z-index: 5;
+}
+li {
+	position: relative;
+	list-style: none;
+}
+.browser_img {
+	width: 35px;
+	height: 30px;
+	position: absolute;
+	top: 11px;
+	left: -35px;
+}
+.file_img {
+	width: 29px;
+	height: 24px;
+	position: absolute;
+	left: -35px;
+	top: -2px;
+}
+
+.folder,
+.file {
+	margin-left: 5px;
+	margin-top: 1rem;
+}
+.folder {
+	color: var(--text_light);
+	background: none;
+	text-align: left;
+	border: none;
+	min-width: 50%;
+	font-weight: 500;
+	outline: none;
+	transition: all 0.7s ease;
+}
+
+.folder:hover {
+	font-size: 14px;
+	background: var(--soft_blue);
+	transform: scale(1.01);
+	text-decoration: underline;
+}
+.file {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 50%;
+	transition: all 0.7s ease-in-out;
+	padding: 0 2px;
+}
+.bg_hover {
+	background-color: var(--soft_red);
+	&--2 {
+		background-color: var(--bg_main);
+	}
+}
+.openFile {
+	font-size: 14px;
+	color: var(--soft_blue);
+	margin-left: 4px;
+	transition: all 1s eaes-in;
+	align-self: flex-start;
+}
+.openFile:hover {
+	color: var(--soft_green);
+	text-decoration: underline;
+	transform: translateY(1px);
+}
+@mixin utilityBtn() {
+	background: none;
+	position: relative;
+	border: 1px solid transparent;
+	border-radius: 15px;
+	outline: none;
+	color: var(--text_light);
+	transition: all 0.7s ease;
+}
+.back {
+	@include utilityBtn();
+	margin-left: -34px;
+	font-size: 14px;
+	padding: 5px 33px;
+	min-width: 130px;
+	transition: all 0.7s ease;
+}
+.back:hover {
+	background-color: var(--text_light);
+	color: var(--text_dark);
+}
+.back img {
+	left: 9px;
+	top: 6px;
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	filter: invert(2%) sepia(81%) saturate(3485%) hue-rotate(245deg) brightness(102%) contrast(103%);
+}
+.error {
+	color: var(--soft_red);
+	font-family: "Montserrat Alternates", sans-serif;
+}
+.delete {
+	@include utilityBtn();
+	padding: 1px 33px;
+	font-size: 12px;
+
+	&__bin {
+		display: none;
+		filter: invert(2%) sepia(81%) saturate(3485%) hue-rotate(245deg) brightness(102%)
+			contrast(103%);
+		width: 15px;
+		height: 15px;
+		right: 5px;
+		top: 1px;
+		transition: all 0.5s ease-in;
+	}
+}
+
+.delete:hover > .delete__bin,
+.download:hover > .download__img {
+	display: block;
+}
+.download {
+	@include utilityBtn();
+	padding: 1px 33px;
+	font-size: 12px;
+	&__img {
+		display: none;
+		filter: invert(2%) sepia(81%) saturate(3485%) hue-rotate(245deg) brightness(102%)
+			contrast(103%);
+		width: 15px;
+		height: 15px;
+		right: 5px;
+		top: 2px;
+		transition: all 0.5s ease-in;
+	}
+}
+
+.utility {
+	align-self: center;
+	margin-bottom: 1rem;
+	&__message {
+		text-align: center;
+		font-size: 30px;
+		color: var(--soft_green);
+	}
+}

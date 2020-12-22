@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/dist/css/main.min.css">
+
+    <title>File browser</title>
+</head>
+
+<body>
+
+    <div class="background-container">
+        <div class="container">
+            <img src="assets/img/moon.png" alt="">
+            <div class="stars"></div>
+            <div class="twinkling"></div>
+            <div class="clouds"></div>
+
+
+            <h1>Your file browser</h1>
+            <form action="index.php" method="POST" class="start">
+                <input type="hidden" name="name" id="">
+                <button type="submit" class="bouncy" id="start"> Start browsing</button>
+
+                <div class="input-container">
+                    <input type="password" id="password" name="password" autocomplete="off" required>
+
+                    <label for="password" class="label-name">
+                        <span class="content-name">Enter password</span>
+                    </label>
+                </div>
+
+
+
+            </form>
+        </div>
+        <div class="header">
+            <p id="bounceTxt">WELCOME!</p>
+        </div>
+    </div>
+    <script src="js/bounce.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

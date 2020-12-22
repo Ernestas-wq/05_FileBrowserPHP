@@ -1,0 +1,56 @@
+h1 {
+	text-align: center;
+	font-size: 60px;
+	margin: 3rem 0;
+	color: var(--text_light);
+	z-index: 5;
+}
+.start {
+	align-self: center;
+}
+@mixin squareBtn {
+	background-color: transparent;
+	border: 1px solid var(--text_light);
+	font-size: 24px;
+	color: var(--text_light);
+	transition: all 0.7s ease;
+	&:hover {
+		background-color: var(--text_light);
+		color: var(--text_dark);
+	}
+}
+.squareBtn {
+	@include squareBtn();
+	padding: 10px 24px;
+}
+.bouncy {
+	@include squareBtn();
+	animation: bouncy 5s infinite linear;
+	position: relative;
+	padding: 10px 24px;
+	z-index: 5;
+}
+
+@keyframes bouncy {
+	0% {
+		top: 0em;
+	}
+	40% {
+		top: 0em;
+	}
+	43% {
+		top: -0.9em;
+	}
+	46% {
+		top: 0em;
+	}
+	48% {
+		top: -0.4em;
+	}
+	50% {
+		top: 0em;
+	}
+	100% {
+		top: 0em;
+	}
+}

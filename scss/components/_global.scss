@@ -1,0 +1,29 @@
+:root {
+	--bg_main: #6d6875;
+	--text_light: #f1faee;
+	--text_dark: #03071e;
+	--soft_blue: #00b4d8;
+	--soft_green: #06d6a0;
+	--soft_red: #e63946;
+}
+* {
+	box-sizing: border-box;
+}
+body {
+	font-family: 'Poppins', sans-serif;
+	color: #fff;
+}
+button {
+	cursor: pointer;
+}
+.container {
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+h1,
+h2,
+h3 {
+	z-index: 5;
+}
