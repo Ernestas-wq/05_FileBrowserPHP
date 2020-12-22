@@ -180,7 +180,7 @@ $base_dir = implode($sep, $tmp);
                     <button id="closeUploadModal">Close</button>
 
                     <h3>Select file to upload: <br><br>
-                     <span>(file will be saved at :root/uploads...)</span></h3>
+                     <span>(file will be saved at project\uploads...)</span></h3>
                     <input type="hidden" name="file" value="' . $rel . '">
                     <input class="custom-file-input" type="file" name="fileToUpload" id="fileToUpload">
                     <button class="upload" type="submit" value="upload" name="confirmUpload">
