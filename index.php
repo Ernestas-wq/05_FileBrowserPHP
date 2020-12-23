@@ -7,8 +7,6 @@ $tmp = explode($sep, $root_dir);
 # Making base directory one level up
 $dir = array_splice($tmp, count($tmp) - 1);
 $base_dir = implode($sep, $tmp);
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,10 +32,6 @@ $base_dir = implode($sep, $tmp);
             <div class="twinkling"></div>
             <div class="clouds"></div>
             <h3 class="error" id="new_dir_error"></h3>
-
-
-
-
 
             <?php
 
