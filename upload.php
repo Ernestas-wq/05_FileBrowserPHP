@@ -27,8 +27,8 @@
             $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
 
-            echo '<form action="index.html" method="POST" class="utility">
-                <button class="squareBtn" type="submit">Back to main</button>
+            echo '<form action="index.php" method="POST" class="utility">
+                <button class="squareBtn" type="submit">Back to browsing</button>
                 </form>
             ';
 
