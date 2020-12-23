@@ -1,2 +1,0 @@
-Testing the uploading system!
-git remote set-url origin git@github.com:Ernestas-wq/repo.git
