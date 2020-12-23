@@ -159,6 +159,9 @@ li {
 		@include squareBtn();
 		padding: 10px 33px;
 	}
+	&__special {
+		color: var(--soft_blue);
+	}
 }
 .userUI {
 	z-index: 5;

@@ -1,7 +1,7 @@
 h1 {
 	text-align: center;
 	font-size: 60px;
-	margin: 3rem 0;
+	margin: 3rem 0 5rem 0;
 	color: var(--text_light);
 	z-index: 5;
 }
@@ -27,6 +27,7 @@ h1 {
 	@include squareBtn();
 	animation: bouncy 5s infinite linear;
 	position: relative;
+	margin-top: 2rem;
 	padding: 10px 24px;
 	z-index: 5;
 }

@@ -186,7 +186,7 @@ h3 {
 h1 {
   text-align: center;
   font-size: 60px;
-  margin: 3rem 0;
+  margin: 3rem 0 5rem 0;
   color: var(--text_light);
   z-index: 5;
 }
@@ -222,6 +222,7 @@ h1 {
   -webkit-animation: bouncy 5s infinite linear;
           animation: bouncy 5s infinite linear;
   position: relative;
+  margin-top: 2rem;
   padding: 10px 24px;
   z-index: 5;
 }
@@ -314,7 +315,6 @@ h1 {
 }
 
 .background-container {
-  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
@@ -323,7 +323,7 @@ h1 {
 
 .stars {
   background: black url("../../img/stars.png") repeat;
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
@@ -337,7 +337,7 @@ h1 {
   height: 100%;
   background: transparent url("../../img/twinkling.png") repeat;
   background-size: 1000px 1000px;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   bottom: 0;
@@ -351,7 +351,7 @@ h1 {
   height: 100%;
   background: transparent url("../../img/clouds_repeat.png") repeat;
   background-size: 1000px 1000px;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   bottom: 0;
@@ -590,6 +590,10 @@ li {
   color: var(--text_dark);
 }
 
+.utility__special {
+  color: var(--soft_blue);
+}
+
 .userUI {
   z-index: 5;
   position: absolute;
@@ -625,7 +629,7 @@ li {
 
 .header {
   position: absolute;
-  top: 60%;
+  top: 50%;
   width: 100%;
   z-index: 4;
 }

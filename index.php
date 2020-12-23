@@ -1,24 +1,5 @@
 <?php
 session_start();
-
-if (
-    isset($_POST['login'])
-    && !empty($_POST['username'])
-    && !empty($_POST['password'])
-) {
-    if (
-        $_POST['username'] == 'ern' &&
-        $_POST['password'] == 'zefyras'
-    ) {
-        $_SESSION['logged_in'] = true;
-        $_SESSION['timeout'] = time();
-        $_SESSION['username'] = 'ern';
-    }
-}
-
-?>
-
-<?php
 # Defining main globals for path managing
 $root_dir = getcwd();
 $sep = DIRECTORY_SEPARATOR;
@@ -53,19 +34,7 @@ $base_dir = implode($sep, $tmp);
             <div class="twinkling"></div>
             <div class="clouds"></div>
             <h3 class="error" id="new_dir_error"></h3>
-            <?php
-            if (isset($_GET['action']) and $_GET['action'] == 'logout') {
-                session_start();
-                unset($_SESSION['username']);
-                unset($_SESSION['password']);
-                unset($_SESSION['logged_in']);
-                echo '<h3 class="utility__message">You have logged out</h3>';
-                echo '<div class="utility">
-                <a class="utility__link" href="index.html">Back to main</a>
-                </div>"
-                ';
-            }
-            ?>
+
 
 
 
@@ -74,7 +43,7 @@ $base_dir = implode($sep, $tmp);
 
             if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-
+                print_r($_SESSION['logged_in']);
                 if ($_SESSION['logged_in'] === true) {
                     $rel = $_POST['file'];
                     // if we are atleast 1 level deep updating base directory
@@ -241,15 +210,21 @@ $base_dir = implode($sep, $tmp);
 
                     echo '<div class="userUI">
                     <h4 class="userUI__name">Welcome, ' . $_SESSION['username'] . '!</h4>
-                    <a class="userUI__link" href="index.php?action=logout">Logout</a>
+                    <a class="userUI__link" href="login.php?action=logout">Logout</a>
                     </div>';
                 } else {
-                    echo '<h3 class="utility__message utility__message--red"> Sorry, something went wrong.</h3>
+                    echo '<h3 class="utility__message utility__message--red"> Sorry, username
+                     or password was not correct.</h3>
                     <div class="utility">
                     <a class="utility__link" href="index.html">Back to main</a>
                     </div>
                     ';
                 }
+            } else {
+                echo '<h3 class="utility__message">Failed to request data</h3>
+                <div class="utility">
+            <a class="utility__link" href="index.html">Back to main</a>
+            </div>';
             }
             ?>
         </div>
