@@ -9,7 +9,6 @@ if (
     && !empty($_POST['password'])
 ) {
     foreach ($users as $user => $psw) {
-        print_r($user . '-->' . $psw);
         if (
             $_POST['username'] === $user
             && $_POST['password'] === $psw
@@ -95,8 +94,6 @@ if (
             }
 
             ?>
-
-
 
         </div>
     </div>

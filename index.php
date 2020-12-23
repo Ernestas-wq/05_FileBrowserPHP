@@ -4,7 +4,7 @@ session_start();
 $root_dir = getcwd();
 $sep = DIRECTORY_SEPARATOR;
 $tmp = explode($sep, $root_dir);
-#Making base directory one level up
+# Making base directory one level up
 $dir = array_splice($tmp, count($tmp) - 1);
 $base_dir = implode($sep, $tmp);
 

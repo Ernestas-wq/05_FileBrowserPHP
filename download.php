@@ -3,7 +3,6 @@
             if (isset($_REQUEST["file"])) {
                 # Get File path
                 $file_path = urldecode($_REQUEST["file"]); // Decode URL-encoded string
-                print_r($file_path);
 
                 // Process download
                 if (file_exists($file_path)) {
