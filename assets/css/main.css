@@ -186,7 +186,7 @@ h3 {
 h1 {
   text-align: center;
   font-size: 60px;
-  margin: 3rem 0 3.5rem 0;
+  margin: 3rem 0 1rem 0;
   color: var(--text_light);
   z-index: 5;
 }
@@ -222,7 +222,6 @@ h1 {
   -webkit-animation: bouncy 5s infinite linear;
           animation: bouncy 5s infinite linear;
   position: relative;
-  margin-top: 2rem;
   padding: 10px 24px;
   z-index: 5;
 }
@@ -374,6 +373,7 @@ form {
 
 ul {
   z-index: 5;
+  margin-bottom: 2rem;
 }
 
 li {
@@ -560,7 +560,7 @@ li {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  margin-bottom: 1rem;
+  margin: 1.5rem 0;
   z-index: 5;
 }
 
