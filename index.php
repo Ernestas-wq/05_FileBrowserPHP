@@ -148,7 +148,7 @@ $base_dir = implode($sep, $tmp);
                             # File with all its options (Delete, download..)..
                             echo '<li data-search="' . $content[$i] . '"><div class="file">
                             <img class="file_img" alt="file" src="assets/img/' . $ext . '.png">
-                            <a class="openFile" href="/' . $path  . ' "> ' . $content[$i] . '  </a>
+                            <a target="_blank" rel="noopener noreferrer" class="openFile" href="/' . $path  . ' "> ' . $content[$i] . '  </a>
                             <form action="" method="POST">
                             <a class="download" href="download.php?file=' . $base_dir . $sep . $content[$i] . '">
                             <img class="download__img" src="assets/img/cloud-arrow-down.svg" alt="trash">
