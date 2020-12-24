@@ -148,11 +148,13 @@ $base_dir = implode($sep, $tmp);
                             # File with all its options (Delete, download..)..
                             echo '<li data-search="' . $content[$i] . '"><div class="file">
                             <img class="file_img" alt="file" src="assets/img/' . $ext . '.png">
-                            <a target="_blank" rel="noopener noreferrer" class="openFile" href="/' . $path  . ' "> ' . $content[$i] . '  </a>
+                            <a target="_blank" rel="noopener noreferrer" class="openFile"
+                             href="/' . $path  . ' "> ' . $content[$i] . ' </a>
                             <form action="" method="POST">
-                            <a class="download" href="download.php?file=' . $base_dir . $sep . $content[$i] . '">
-                            <img class="download__img" src="assets/img/cloud-arrow-down.svg" alt="trash">
-                            Download </a>
+                            <a class="download" href="download.php?file=
+                            ' . $base_dir . $sep . $content[$i] . '">
+                            <img class="download__img"
+                            src="assets/img/cloud-arrow-down.svg" alt="trash">Download </a>
                             <input type="hidden" name="file" value="' . $rel . '">
                             <input type="hidden" name="delete" value="' . $curr_dir . '">
                             <button class="delete" type="submit">Delete
@@ -187,7 +189,8 @@ $base_dir = implode($sep, $tmp);
                     if ($_POST['uploadModal']) {
                         echo ' <div class="modal_overlay modal_overlay--active" id="uploadModal">
 
-                    <form action="upload.php" method="POST" id="uploadForm" class="modal" enctype="multipart/form-data">
+                    <form action="upload.php" method="POST" id="uploadForm" class="modal"
+                    enctype="multipart/form-data">
                     <button id="closeUploadModal">Close</button>
 
                     <h3>Select file to upload: <br><br>
