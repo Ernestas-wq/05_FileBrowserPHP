@@ -113,8 +113,7 @@ li {
 
 	&__bin {
 		display: none;
-		filter: invert(2%) sepia(81%) saturate(3485%) hue-rotate(245deg) brightness(102%)
-			contrast(103%);
+		filter: invert(2%) sepia(81%) saturate(3485%) hue-rotate(245deg) brightness(102%) contrast(103%);
 		width: 15px;
 		height: 15px;
 		right: 5px;
@@ -133,8 +132,7 @@ li {
 	font-size: 12px;
 	&__img {
 		display: none;
-		filter: invert(2%) sepia(81%) saturate(3485%) hue-rotate(245deg) brightness(102%)
-			contrast(103%);
+		filter: invert(2%) sepia(81%) saturate(3485%) hue-rotate(245deg) brightness(102%) contrast(103%);
 		width: 15px;
 		height: 15px;
 		right: 5px;
@@ -155,6 +153,12 @@ li {
 		&--red {
 			color: var(--soft_red);
 		}
+	}
+	&__topLeft {
+		position: absolute;
+		top: 30px;
+		left: 30px;
+		color: var(--soft_blue);
 	}
 	&__link {
 		@include squareBtn();

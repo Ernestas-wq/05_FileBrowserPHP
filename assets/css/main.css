@@ -575,6 +575,13 @@ li {
   color: var(--soft_red);
 }
 
+.utility__topLeft {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  color: var(--soft_blue);
+}
+
 .utility__link {
   background-color: transparent;
   border: 1px solid var(--text_light);

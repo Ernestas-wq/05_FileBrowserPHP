@@ -38,12 +38,15 @@ $base_dir = implode($sep, $tmp);
 
             if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-                print_r($_SESSION['logged_in']);
                 if ($_SESSION['logged_in'] === true) {
+
                     $rel = $_POST['file'];
                     // if we are atleast 1 level deep updating base directory
                     $base_dir = $rel ? $base_dir . $rel : $base_dir;
+                    print_r($base_dir);
 
+                    echo '<div class="utility utility__topLeft"><h3 class=utility__message">
+                     ' . $base_dir .  '  </h3> </div>';
                     # Confirm delete
                     if ($_POST['confirmDelete']) {
                         $path_to_item = $_POST['confirmDelete'];
