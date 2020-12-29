@@ -31,7 +31,7 @@ function displayUploadModal($path)
     <button id="closeUploadModal">Close</button>
 
     <h3>Select file to upload: <br><br>
-     <span>(file will be saved at \uploads...)</span></h3>
+     <span>(file will be saved at current directory)</span></h3>
     <input type="hidden" name="file" value="' . $path . '">
     <input class="custom-file-input" type="file" name="fileToUpload" id="fileToUpload">
     <button class="upload" type="submit" value="upload" name="confirmUpload">

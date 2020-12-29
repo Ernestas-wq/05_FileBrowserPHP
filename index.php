@@ -1,13 +1,12 @@
 <?php
 require('helpers/displays.php');
+require('helpers/helperFoos.php');
 session_start();
 # Defining main globals for path managing
-$root_dir = getcwd();
 $sep = DIRECTORY_SEPARATOR;
-$tmp = explode($sep, $root_dir);
-# Making base directory one level up
-$dir = array_splice($tmp, count($tmp) - 1);
-$base_dir = implode($sep, $tmp);
+# Change levels if you want to browse on higher level
+$base_dir = defineBaseDir(getcwd(), 1);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +42,6 @@ $base_dir = implode($sep, $tmp);
                     $rel = $_POST['file'];
                     // if we are atleast 1 level deep updating base directory
                     $base_dir = $rel ? $base_dir . $rel : $base_dir;
-                    print_r($base_dir);
                     #Display current browsing dir..
                     echo '<div class="utility utility__topLeft"><h3 class=utility__message">
                      ' . $base_dir .  '  </h3> </div>';
@@ -149,7 +147,7 @@ $base_dir = implode($sep, $tmp);
                     }
                     #Upload
                     if ($_POST['uploadModal']) {
-                        displayUploadModal($rel);
+                        displayUploadModal($base_dir);
                     }
                     echo "</ul>";
                     # User UI corner

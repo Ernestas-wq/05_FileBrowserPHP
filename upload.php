@@ -21,17 +21,22 @@
             <div class="clouds"></div>
             <h3 class="error" id="new_dir_error"></h3>
             <?php
-            $target_dir = "uploads/";
-            $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+            require('helpers/helperFoos.php');
+
+            $base_dir = defineBaseDir(getcwd(), 1);
+            $target_dir = $_POST['file'];
+            $target_file = $target_dir . DIRECTORY_SEPARATOR .  basename($_FILES["fileToUpload"]["name"]);
+            # Defining new rel so that back to browsing routes to the uploaded directory
+            $rel = end(explode($base_dir, $target_dir));
             $uploadOk = 1;
             $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-
+            // $file_ext = strtolower(end(explode('.',$_FILES['image']['name'])));
+            // $file_ext = strtolower(end(explode('.', $_FILES["fileToUpload"]["name"])));
             echo '<form action="index.php" method="POST" class="utility">
-                <button class="squareBtn" type="submit">Back to browsing</button>
+            <input type="hidden" name="file" value="' . $rel . '">
+             <button class="squareBtn" type="submit">Back to browsing</button>
                 </form>
             ';
-
             // Check if file already exists
             if (file_exists($target_file)) {
                 echo '<h3 class="utility__message utility__message--red"> Sorry, file already exists.</h3>';
