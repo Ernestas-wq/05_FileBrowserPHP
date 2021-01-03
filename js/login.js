@@ -12,7 +12,7 @@ const fetchUsers = async () => {
 	}
 };
 
-if (login !== null) {
+if (login) {
 	fetchUsers().then(users => {
 		login.addEventListener('submit', e => {
 			let validUser = false;

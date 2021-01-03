@@ -11,7 +11,7 @@ const search = document.getElementById('search');
 const allItems = document.querySelectorAll('[data-search]');
 
 // Some input preventions
-if (new_dir_form !== null) {
+if (new_dir_form) {
 	new_dir_form.addEventListener('submit', e => {
 		const folderName = new_dir_text.value;
 		const symbolRegex = /\W/g;
@@ -69,7 +69,7 @@ downloadButtons.forEach(btn => {
 	});
 });
 
-if (uploadModal !== null) {
+if (uploadModal) {
 	closeUploadModal.addEventListener('click', e => {
 		e.preventDefault();
 		uploadModal.classList.remove('modal_overlay--active');
@@ -77,7 +77,7 @@ if (uploadModal !== null) {
 }
 // search
 
-if (search !== null) {
+if (search) {
 	search.addEventListener('keyup', () => {
 		allItems.forEach(item => {
 			item.classList.add('hidden');
